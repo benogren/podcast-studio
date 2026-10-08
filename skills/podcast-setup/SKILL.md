@@ -23,7 +23,11 @@ directory.
    - Show name and a one-line description of who it's for.
    - **Mode:** `conversation` (two friends riffing), `explainer` (one host walks the other
      through it), or `debate` (two opposing priors that steelman each other).
-   - **Cast:** two host names, a line or two on each one's personality and what they argue well,
+   - **Cast:** two host names, a line or two on each one's personality and what they argue well.
+     **The two hosts must be deliberate opposites in disposition** (for example builder versus
+     skeptic, optimist versus auditor, big-picture versus detail), differing in priors, pace,
+     humor and how they behave when leading versus reacting, or the audio blurs into one voice.
+     If the user's descriptions are similar, propose a contrast and ask. Both are equally smart;
      and whether to include the third voice, an `intern` who carries the source material to the
      hosts (recommended for dense material; needs no extra setup).
    - **Episode types:** `show.json` ships three presets (digest of a batch of new material, deep
@@ -42,7 +46,11 @@ directory.
    `signoff`, `episode_types`, `eligibility_rules`; delete the `_notes` key; keep `spines` and
    `intern_entrances` unless the user edits the style guide's spine menu) and rewrite `SPEC/personas/host.md`,
    `guest.md` and (if enabled) `intern.md` from the interview. Personas describe the *voice*
-   (priors, strengths, pace, humor, red lines), never invented biography.
+   (priors, strengths, pace, humor, red lines, a one-line "difference from the other host", and a
+   "Sounds like" sample line), never invented biography. Keep the template's section structure
+   (it includes "When leading" and "When reacting" so personas survive the rotating lead seat).
+   Afterward run `scripts/render.py --validate examples/sample.json`; it warns if two persona
+   files are too similar.
 5. **Python env.** From `podcast/`: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
    Check `ffmpeg -version`; if missing, tell the user to run `brew install ffmpeg` (or their
    platform's equivalent) rather than installing system packages yourself.

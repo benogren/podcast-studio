@@ -129,6 +129,27 @@ _TTS_HOSTILE = [
 ]
 
 
+def _persona_similarity_warnings():
+    """Warn when two persona files are near-duplicates: the #1 reason hosts blur together."""
+    import difflib
+    out = []
+    names = ["host", "guest", "intern"]
+    texts = {}
+    for sp in names:
+        rel = load_show().get("hosts", {}).get(sp, {}).get("persona")
+        f = PROJECT_ROOT / rel if rel else None
+        if f and f.exists():
+            texts[sp] = re.sub(r"\b(?:Alex|Sam|Riley)\b", "X", f.read_text())
+    keys = list(texts)
+    for i, a in enumerate(keys):
+        for b in keys[i + 1:]:
+            ratio = difflib.SequenceMatcher(None, texts[a], texts[b]).ratio()
+            if ratio > 0.6:
+                out.append(f"persona files for '{a}' and '{b}' are {ratio:.0%} alike; "
+                           "rewrite them so the voices differ in priors, pace, humor and role")
+    return out
+
+
 def validate_payload(payload):
     """Returns (errors, warnings). Errors block rendering; warnings are style lint."""
     errors, warnings = [], []
@@ -182,6 +203,7 @@ def validate_payload(payload):
     lengths = [len(l["text"].split()) for l in dialogue]
     if len(dialogue) >= 20 and max(lengths) - min(lengths) < 25:
         warnings.append("line lengths are very uniform; vary lead lines and burst lines")
+    warnings += _persona_similarity_warnings()
     meta = payload.get("meta")
     if not isinstance(meta, dict) or not all(meta.get(k) for k in ("type", "spine", "lead")):
         warnings.append("payload has no complete `meta` (type, spine, lead); rotation.py can't count this episode. See SPEC/episode-types.md")

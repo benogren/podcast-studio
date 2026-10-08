@@ -17,6 +17,12 @@ The cast comes from `show.json` and the persona files in `SPEC/personas/`.
   vocatively at hand-offs and teases ("Sam, have you heard of this?"), not in every line, and
   nobody introduces themselves.
 
+**The two hosts must sound different on the page, not just in voice.** Differences in priors,
+pace, humor, and how each behaves when leading versus reacting are what keep the audio from
+blurring into one person talking. Before saving a payload, cover the `speaker` field and check
+that you could still tell who is talking. If you can't, rewrite the lines toward each persona's
+"Sounds like" sample. Both hosts are equally smart; they differ in disposition, not intelligence.
+
 Persona consistency matters more than any other rule: a host who sounds like someone else for a
 few lines is the fastest way to sound synthetic. Read the persona files first.
 
@@ -222,6 +228,7 @@ Name the file `payloads/YYYY-MM-DD-HHMM-slug.json`. `speaker` is one of `host`, 
 - [ ] Uniform alternation (every line 40-50 words, strict trading)
 - [ ] A fact, number, or quote that isn't in the sources
 - [ ] Persona drift, or the lead seat changing hands mid-episode
+- [ ] **The hosts are interchangeable**: cover the `speaker` field; if you can't tell who's talking, rewrite
 - [ ] Same spine as either of the last two episodes
 - [ ] Missing cold open, a missing or miscounted `cold_open_lines`, or an opening thesis monologue
 - [ ] A close that's a mic-drop or synthesis instead of sincere beat, joke or callback, sign-off
