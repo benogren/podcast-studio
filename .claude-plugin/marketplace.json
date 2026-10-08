@@ -1,0 +1,11 @@
+{
+  "name": "podcast-studio",
+  "owner": { "name": "Ben Ogren" },
+  "plugins": [
+    {
+      "name": "podcast-studio",
+      "source": "./",
+      "description": "Turn any source material into a multi-host podcast episode with Gemini TTS."
+    }
+  ]
+}

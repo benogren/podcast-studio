@@ -1,0 +1,8 @@
+{
+  "name": "podcast-studio",
+  "version": "0.1.0",
+  "description": "Turn any source material (articles, notes, PDFs, transcripts) into a polished multi-host podcast episode: Claude drafts the dialogue, Gemini multi-speaker TTS voices it, and you get a mastered MP3 on disk.",
+  "author": { "name": "Ben Ogren" },
+  "license": "MIT",
+  "keywords": ["podcast", "tts", "gemini", "audio", "dialogue"]
+}

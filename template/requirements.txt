@@ -1,0 +1,8 @@
+# podcast-studio dependencies. Gemini TTS is called over plain HTTP, no Google SDK.
+requests
+pydub
+# pydub imports stdlib `audioop`, removed in Python 3.13+; this is the backport.
+audioop-lts>=0.2.1; python_version >= "3.13"
+# Optional: convert PDFs/DOCX/PPTX/HTML sources to markdown before drafting.
+markitdown[pdf]
+# ffmpeg is a system dependency (brew install ffmpeg), required for MP3 export.

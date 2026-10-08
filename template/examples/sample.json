@@ -1,0 +1,14 @@
+{
+  "title": "Sample episode: how the pipeline works",
+  "description": "A tiny sample used to smoke-test the renderer. Replace with a real episode.",
+  "cold_open_lines": 2,
+  "dialogue": [
+    { "speaker": "host", "text": "Okay, I have a confession. I just spent an hour reading about how a single sentence turns into audio, and I have opinions." },
+    { "speaker": "guest", "text": "Opinions about text to speech. Of course you do. Start from the beginning." },
+    { "speaker": "host", "text": "So the idea is simple. You write a script with two voices, a computer reads it, and out comes an episode. Riley, you did the reading. Take it away." },
+    { "speaker": "intern", "text": "Thanks. The one-sentence version: the script is just a list of turns, each tagged with who is speaking, and the renderer asks the voice model to perform them in order. The tricky part is that the model can only handle two voices per request, so every segment is written with exactly two speakers." },
+    { "speaker": "host", "text": "So the third voice has to wait her turn." },
+    { "speaker": "intern", "text": "Right, and that is why the hand-offs matter. Each hand-off is where the audio request changes, so it should sound like a natural pass of the mic." },
+    { "speaker": "guest", "text": "Which means I get the last word. Alright. That's it, that's the pod." }
+  ]
+}

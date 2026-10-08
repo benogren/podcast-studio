@@ -1,0 +1,19 @@
+{
+  "name": "My Show",
+  "tagline": "One sentence on what the show is and who it's for.",
+  "mode": "conversation",
+  "intern_enabled": true,
+  "target_words": [2000, 3500],
+  "signoff": "Alright. That's it, that's the pod.",
+  "hosts": {
+    "host": { "name": "Alex", "voice": "Sulafat", "persona": "SPEC/personas/host.md" },
+    "guest": { "name": "Sam", "voice": "Algenib", "persona": "SPEC/personas/guest.md" },
+    "intern": { "name": "Riley", "voice": "Zephyr", "persona": "SPEC/personas/intern.md" }
+  },
+  "_notes": {
+    "mode": "conversation = two friends riffing on the material; explainer = one host walks the other through it; debate = two hosts with opposing priors who steelman each other.",
+    "intern_enabled": "true adds a third voice who carries the source material to the hosts. Needs the Gemini renderer (included).",
+    "voices": "Any Gemini prebuilt voice name. Browse them at https://ai.google.dev/gemini-api/docs/speech-generation",
+    "target_words": "[min, max]. About 150 words per minute of audio."
+  }
+}
