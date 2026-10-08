@@ -45,5 +45,9 @@ directory.
    Offer one paid smoke test once the key is in place:
    `.venv/bin/python scripts/render.py --max-lines 4 examples/sample.json` (a few cents), and ask
    the user to listen for the voices being distinct and matching the personas.
-8. **Hand off:** tell them to run the `make-podcast` skill with their source material, and where
-   theme music would go (`assets/`, optional; only music they have rights to).
+8. **Hand off:** tell them to run the `make-podcast` skill with their source material. Suggest an
+   intro: a short "podcast hook" or intro track from a rights-cleared library such as Epidemic
+   Sound (https://www.epidemicsound.com/music/themes/podcast/podcast-hooks/) or Envato Elements
+   (https://elements.envato.com/royalty-free-music/podcast+intro+music), saved as
+   `assets/theme.mp3`. Note both are subscriptions, so they should confirm their plan's license
+   covers podcast distribution. It's optional; episodes render voice-only without it.

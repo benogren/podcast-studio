@@ -40,7 +40,10 @@ Then, in the folder where you want the show to live:
 ## Notes
 
 - You own the generated `podcast/` folder; edit the style guide and personas freely.
-- Theme music is optional and not included. Use only music you have the right to publish with.
+- Theme music is optional and not included. Grab a short intro from a rights-cleared library such as
+  [Epidemic Sound](https://www.epidemicsound.com/music/themes/podcast/podcast-hooks/) or
+  [Envato Elements](https://elements.envato.com/royalty-free-music/podcast+intro+music), confirm your
+  plan's license covers podcast distribution, and save it as `podcast/assets/theme.mp3`.
 - The hosts are synthetic voices. If you publish, disclose that.
 - The dialogue style is modeled on conversational business podcasts but contains no transcripts or
   copyrighted text.
