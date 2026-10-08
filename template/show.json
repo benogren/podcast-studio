@@ -3,17 +3,123 @@
   "tagline": "One sentence on what the show is and who it's for.",
   "mode": "conversation",
   "intern_enabled": true,
-  "target_words": [2000, 3500],
+  "target_words": [
+    2000,
+    3500
+  ],
   "signoff": "Alright. That's it, that's the pod.",
   "hosts": {
-    "host": { "name": "Alex", "voice": "Sulafat", "persona": "SPEC/personas/host.md" },
-    "guest": { "name": "Sam", "voice": "Algenib", "persona": "SPEC/personas/guest.md" },
-    "intern": { "name": "Riley", "voice": "Zephyr", "persona": "SPEC/personas/intern.md" }
+    "host": {
+      "name": "Alex",
+      "voice": "Sulafat",
+      "persona": "SPEC/personas/host.md"
+    },
+    "guest": {
+      "name": "Sam",
+      "voice": "Algenib",
+      "persona": "SPEC/personas/guest.md"
+    },
+    "intern": {
+      "name": "Riley",
+      "voice": "Zephyr",
+      "persona": "SPEC/personas/intern.md"
+    }
   },
+  "spines": [
+    "reaction-relay",
+    "document-teardown",
+    "judged-countdown",
+    "rug-pull",
+    "prove-me-wrong",
+    "masterclass",
+    "research-debrief",
+    "case-study-relay",
+    "challenge-premise"
+  ],
+  "intern_entrances": [
+    "cold-handoff",
+    "knowledge-check",
+    "callback",
+    "mid-argument-summon",
+    "assignment-reveal"
+  ],
+  "episode_types": [
+    {
+      "id": "digest",
+      "name": "Digest",
+      "trigger": "A batch of new material arrives (a day or week of newsletters, articles, saved links). Recurring.",
+      "intern": false,
+      "mode": "conversation",
+      "target_words": [
+        3000,
+        4500
+      ],
+      "spines": [
+        "reaction-relay",
+        "judged-countdown",
+        "research-debrief",
+        "case-study-relay"
+      ],
+      "rules": [
+        "Two hosts only, no intern.",
+        "One host brought everything and leads every segment; the other is the audience proxy.",
+        "Group the batch into 3-6 themed stories; skip anything that is only a passing mention."
+      ]
+    },
+    {
+      "id": "deep-dive",
+      "name": "Deep dive",
+      "trigger": "A subject has accumulated enough material to cover properly (you have read enough on it, or your notes on it are mature). Triggered, not scheduled.",
+      "intern": true,
+      "mode": "conversation",
+      "target_words": [
+        2000,
+        4500
+      ],
+      "spines": [
+        "document-teardown",
+        "research-debrief",
+        "rug-pull",
+        "masterclass",
+        "prove-me-wrong"
+      ],
+      "rules": [
+        "Intern format: open, intern with lead host, intern with other host, close.",
+        "Go deeper, not louder: if the subject appeared in a digest, never replay those beats.",
+        "Apply your eligibility rules (below) before drafting."
+      ]
+    },
+    {
+      "id": "single-subject",
+      "name": "Single-subject explainer or debate",
+      "trigger": "One primary source (a report, paper, bill, filing, long article) deserves its own episode.",
+      "intern": true,
+      "mode": "debate",
+      "target_words": [
+        2000,
+        3500
+      ],
+      "spines": [
+        "document-teardown",
+        "research-debrief",
+        "prove-me-wrong",
+        "challenge-premise"
+      ],
+      "rules": [
+        "The intern carries the source's facts and takes no side; the hosts argue from them.",
+        "Steelman before you rebut; close on the real crux."
+      ]
+    }
+  ],
+  "eligibility_rules": [
+    "Replace with your own, e.g. 'no dedicated episodes about a specific person or company'."
+  ],
   "_notes": {
     "mode": "conversation = two friends riffing on the material; explainer = one host walks the other through it; debate = two hosts with opposing priors who steelman each other.",
     "intern_enabled": "true adds a third voice who carries the source material to the hosts. Needs the Gemini renderer (included).",
     "voices": "Any Gemini prebuilt voice name. Browse them at https://ai.google.dev/gemini-api/docs/speech-generation",
-    "target_words": "[min, max]. About 150 words per minute of audio."
+    "target_words": "[min, max]. About 150 words per minute of audio.",
+    "episode_types": "Presets. Keep, rename, edit or delete them. See SPEC/episode-types.md. Rotation is computed from archived payloads by scripts/rotation.py.",
+    "spines": "Ids for the spine menu in SPEC/style-guide.md; rotation.py avoids the last few used."
   }
 }

@@ -12,6 +12,9 @@ Everything runs on your machine; the only service called is the Gemini API with 
   numbers, humor, a fixed cold-open/close skeleton, and a **fidelity rule**: every fact must trace
   to your sources.
 - Three modes: `conversation`, `explainer`, `debate` (hosts steelman each other).
+- **Episode types and automatic rotation:** presets for digests, deep dives and single-subject
+  episodes, with a script that rotates the lead seat, spine and intern entrance and flags prior
+  coverage from your archive, so the show doesn't go formulaic.
 - Optional third voice (the intern) who simplifies the material; segments are written two voices at
   a time to fit Gemini's two-speaker-per-request limit.
 - Free validation and style lint before you spend anything on audio.

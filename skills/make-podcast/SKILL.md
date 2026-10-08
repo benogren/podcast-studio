@@ -22,16 +22,23 @@ Work from the project folder (the one containing `show.json`). Use `.venv/bin/py
    provided, ask what to cover. Keep an internal facts list (claim, number, quote, where from).
    **Every fact in the dialogue must come from the sources** (see "Fidelity" in the style guide).
    Flag anything the sources contradict or leave unknown instead of guessing.
-3. **Check continuity.** Skim `archived/` for earlier episodes on the same material. Note the last
-   episode's **spine** and **lead seat** (who opened and who played audience proxy) so you rotate
-   both, and follow the style guide's continuity rules.
-4. **Plan briefly, then proceed.** Pick the spine, the lead seat, the segment shape (two speakers
-   per segment if the intern is enabled), and a target length within `target_words`. Tell the
-   user the plan in 3-5 lines; if they have not said "just do it", pause for a yes or edits
-   before drafting a long script.
+3. **Pick the episode type, then get the rotation.** Read `SPEC/episode-types.md` and
+   `show.json`'s `episode_types`; choose the type that fits the request (digest of a batch,
+   deep dive on an accumulated subject, single-subject on one primary source), or ask. Apply the
+   show's `eligibility_rules`; if the subject fails them, say so and stop. Then run
+   `.venv/bin/python scripts/rotation.py next --type <id> --topic "<keywords>"`. It tells you the
+   **lead seat** (alternates), the **spine** (least recently used, never one of the last two),
+   the **intern entrance** (for intern types) and any **prior coverage** to read before drafting
+   (follow the style guide's continuity rules: go deeper, never replay).
+4. **Plan briefly, then proceed.** State the type, spine, lead seat, segment shape (two speakers
+   per segment if the intern is enabled) and target length in 3-5 lines; if they have not said
+   "just do it", pause for a yes or edits before drafting a long script. The type's `rules`
+   in `show.json` are binding.
 5. **Draft the payload** at `payloads/YYYY-MM-DD-HHMM-slug.json` in the shape the style guide's
    "Payload" section shows (`title`, `description`, `cold_open_lines`, `dialogue`,
-   `source_refs`). Write TTS-safe text (spell out numbers, money, scores). Then run the style
+   `source_refs`) **plus a `meta` block** (`type`, `spine`, `lead`, and `intern_entrance` for
+   intern types; see `SPEC/episode-types.md`) recording the choices from step 3. Rotation
+   depends on it. Write TTS-safe text (spell out numbers, money, scores). Then run the style
    guide's anti-patterns checklist against your own draft and fix what fails.
 6. **Validate (free):** `.venv/bin/python scripts/render.py --validate payloads/<file>.json`.
    Errors block rendering; warnings are style lint. Fix errors and address warnings that point
@@ -43,7 +50,7 @@ Work from the project folder (the one containing `show.json`). Use `.venv/bin/py
    output path. If `GEMINI_API_KEY` is missing, send the user to `.env.local`; never request or
    print the key.
 8. **Archive and report.** Move the rendered payload to `archived/`. Report the MP3 path, duration,
-   the spine and lead seat used (so the next episode rotates), and any facts the sources left
+   the type, spine and lead seat used (so the next episode rotates), and any facts the sources left
    unknown. Do not publish or upload anywhere unless the user asks.
 
 ## Notes

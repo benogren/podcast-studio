@@ -26,13 +26,21 @@ directory.
    - **Cast:** two host names, a line or two on each one's personality and what they argue well,
      and whether to include the third voice, an `intern` who carries the source material to the
      hosts (recommended for dense material; needs no extra setup).
-   - Target episode length (default 2,000-3,500 words, about 13-23 minutes) and the sign-off line.
+   - **Episode types:** `show.json` ships three presets (digest of a batch of new material, deep
+     dive on a subject with accumulated material, single-subject explainer/debate on one
+     source). Ask which fit the show; delete the rest and adjust their length, favored spines
+     and rules. Ask for any **eligibility rules** about what the show will *not* cover (for
+     example "no episodes about a specific person or company") and write them to
+     `eligibility_rules`. Explain in two sentences that the lead seat, spine and intern entrance
+     rotate automatically (see `SPEC/episode-types.md`).
+   - Sign-off line. (Lengths come from the episode types.)
    - **Voices:** defaults are Sulafat (host), Algenib (guest), Zephyr (intern). Pick distinct
      voices that fit the personas; Gemini has 30 prebuilt voices
      (https://ai.google.dev/gemini-api/docs/speech-generation). Make sure the voice's gender
      matches how the host is described.
 4. **Write the config:** fill `podcast/show.json` (set `intern_enabled`, names, voices, mode,
-   `target_words`, `signoff`; delete the `_notes` key) and rewrite `SPEC/personas/host.md`,
+   `signoff`, `episode_types`, `eligibility_rules`; delete the `_notes` key; keep `spines` and
+   `intern_entrances` unless the user edits the style guide's spine menu) and rewrite `SPEC/personas/host.md`,
    `guest.md` and (if enabled) `intern.md` from the interview. Personas describe the *voice*
    (priors, strengths, pace, humor, red lines), never invented biography.
 5. **Python env.** From `podcast/`: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.

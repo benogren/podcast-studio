@@ -5,8 +5,9 @@ get an MP3.
 
 ```
 show.json          cast, voices, mode, length, sign-off
-SPEC/              style-guide.md + personas/ (edit these to change how the show sounds)
+SPEC/              style-guide.md, episode-types.md, personas/ (edit to change how the show sounds)
 scripts/render.py  validate + render (Gemini multi-speaker TTS, mastering, optional music)
+scripts/rotation.py  next episode's lead seat, spine, intern entrance, prior coverage
 payloads/          drafted episodes (JSON) waiting to render
 archived/          rendered payloads (used for continuity and seat rotation)
 audio/             rendered MP3s (gitignored)

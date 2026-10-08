@@ -83,8 +83,8 @@ talking.** The standard shape:
 Make every hand-off a clean line ("Sam, she's all yours"). Never let a third voice drop in with a
 one-liner mid-segment; the renderer splits there and it sounds stitched.
 
-**Rotate the lead.** Check the last archived payload and give the lead seat (who opens, who brings
-the intern in, who plays audience proxy) to the other host.
+**Rotate the lead.** `scripts/rotation.py next` names who leads (who opens, who brings the intern
+in, who plays audience proxy); it alternates every episode. See `SPEC/episode-types.md`.
 
 **Vary the intern's entrance**, and never frame the episode as an experiment ("we're trying
 something new"): a cold hand-off, a knowledge check through her, a callback to last time, a
@@ -97,8 +97,10 @@ time through, simplify again.
 
 ## Spines: the menu
 
-The skeleton is fixed; the **spine** (the game inside it) varies. Check the last 2-3 archived
-payloads and pick a different one.
+The skeleton is fixed; the **spine** (the game inside it) varies. `scripts/rotation.py next`
+recommends one (see `SPEC/episode-types.md`); never reuse a spine from the last two episodes.
+Spine ids, in order, match `show.json`: reaction-relay, document-teardown, judged-countdown,
+rug-pull, prove-me-wrong, masterclass, research-debrief, case-study-relay, challenge-premise.
 
 1. **Reaction relay.** One voice consumed the source and relays it one "thing" at a time, sorted
    into labeled buckets; the other reacts fresh.

@@ -182,6 +182,9 @@ def validate_payload(payload):
     lengths = [len(l["text"].split()) for l in dialogue]
     if len(dialogue) >= 20 and max(lengths) - min(lengths) < 25:
         warnings.append("line lengths are very uniform; vary lead lines and burst lines")
+    meta = payload.get("meta")
+    if not isinstance(meta, dict) or not all(meta.get(k) for k in ("type", "spine", "lead")):
+        warnings.append("payload has no complete `meta` (type, spine, lead); rotation.py can't count this episode. See SPEC/episode-types.md")
     show = load_show()
     lo, hi = (show.get("target_words") or [0, 0])[:2] if isinstance(show.get("target_words"), list) else (0, 0)
     if len(dialogue) < 20:
