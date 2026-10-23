@@ -268,7 +268,6 @@ def build_request(model, lines, voices):
         "response_format": {"type": "audio"},
         "generation_config": {
             "speech_config": {
-                "mode": "conversational",
                 "speakers": [{"speaker": SPEAKER_LABELS[sp], "voice": voices[sp]} for sp in present],
             }
         },
